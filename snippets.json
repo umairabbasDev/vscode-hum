@@ -1,0 +1,17 @@
+{
+	"declare a directory ": {
+		"prefix": "dir",
+		"body": ["#dir '$1'"],
+		"description": "declare a directory, add the location of current working directory or folder "
+	},
+    "custom command": {
+		"prefix": "cmd",
+		"body": [
+            "#$1",
+            "   ",
+            "   ",
+            "#$1End"
+        ],
+		"description": "declare a custom structure or flow of commands "
+	}
+}

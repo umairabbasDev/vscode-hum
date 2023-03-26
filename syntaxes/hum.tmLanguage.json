@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "hum",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#blocks"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#dir"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.colon.hum",
+          "match": ":.*"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.operator.hum",
+          "match": "\\b(if|while|for|return)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.hum",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.hum",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "blocks": {
+      "name": "keyword.other.blocks.hum",
+      "begin": "#[A-Z]+",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.keyword.hum" }
+      },
+      "end": "#[A-Z]+End",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.keyword.hum" }
+      },
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#strings"
+        }
+      ]
+    },
+    "dir": {
+      "patterns": [
+        {
+          "name": "constant.language.dir",
+          "match": "#dir(?=\\s+['\"]([^'\"]*)['\"])"
+        },
+        {
+          "name": "string.quoted.double.dir",
+          "begin": "#dir\\s+['\"]",
+          "end": "['\"]",
+          "patterns": [
+            {
+              "name": "constant.character.escape.dir",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "invalid.illegal.dir",
+          "match": "#dir(?!\\s+['\"]([^'\"]*)['\"])"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.hum"
+}

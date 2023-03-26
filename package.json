@@ -1,0 +1,31 @@
+{
+  "name": "hum",
+  "displayName": "hum",
+  "description": "hum language for automating work for terminal/command-line",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "hum",
+      "aliases": ["hum", "hum"],
+      "extensions": [".hum"],
+      "configuration": "./language-configuration.json"
+    }],
+    "snippets": [
+      {
+        "language": "hum",
+        "path": "./snippets.json"
+      }
+    ],
+    "grammars": [{
+      "language": "hum",
+      "scopeName": "source.hum",
+      "path": "./syntaxes/hum.tmLanguage.json"
+    }]
+  }
+}
